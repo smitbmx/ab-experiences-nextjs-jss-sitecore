@@ -8,11 +8,11 @@ function Home(props) {
   var experience = GetExperience(props);
   return <div>
     <h1>Welcome to Proton Store</h1>
-    <h3>{experience.sitecore.route.deviceId}</h3>
+    {/* <h3>{experience.sitecore.route.deviceId}</h3> */}    
     
-    
-      <h3>{experience.sitecore.route.fields.Title.value}</h3>
-      <h3>{experience.sitecore.route.fields.Text.value}</h3>
+      <h2>{experience.sitecore.route.fields.Title.value}</h2>
+      <h4>{experience.sitecore.route.fields.Text.value}</h4>
+      <img src={experience.sitecore.route.fields.Image.value} />
     
   </div>
 }
