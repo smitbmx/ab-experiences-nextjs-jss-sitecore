@@ -28,13 +28,13 @@ function Home(props) {
 }
 
 Home.getInitialProps = async function(){
-   var items = ['AutoExperiences/ProtonPerdana', 'AutoExperiences/ProtonSaga'];
+   var items = ['AutoExperiences/ProtonPerdana', 'AutoExperiences/ProtonSaga', 'AutoExperiences/ProtonX50'];
 
    var sitecoreExperiences = new Array();
-   for (let i = 0; i < 2; i++) {
-    const res3 = await fetch('https://alpa-xpsingle-single.azurewebsites.net/sitecore/api/layout/render/jss?item='+items[i]+'&sc_apikey={AB32580E-F477-47EE-B4AB-FAAEB86225C0}')
-    const data3 = await res3.json();
-    sitecoreExperiences.push(data3);
+   for (let i = 0; i < items.length; i++) {
+    const res = await fetch('https://alpa-xpsingle-single.azurewebsites.net/sitecore/api/layout/render/jss?item='+items[i]+'&sc_apikey={AB32580E-F477-47EE-B4AB-FAAEB86225C0}')
+    const data = await res.json();
+    sitecoreExperiences.push(data);
   }
 
 
