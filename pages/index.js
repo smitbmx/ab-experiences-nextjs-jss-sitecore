@@ -6,7 +6,7 @@ function Home(props) {
   console.warn("data", props.data.sitecore.route.fields.Text.value)
 
   return <div>
-    <h1>Welcome to Sitecore</h1>
+    <h1>Welcome to Proton Store</h1>
     <h3>{props.data.sitecore.route.deviceId}</h3>
     
     
@@ -17,7 +17,10 @@ function Home(props) {
 }
 
 Home.getInitialProps = async function(){
-  const item = 'ItemSample'
+  //const item = 'AutoExperiences/ProtonPerdana'
+   var items = ['AutoExperiences/ProtonPerdana', 'AutoExperiences/ProtonSaga'];
+   var item = items[Math.floor(Math.random() * items.length)];
+
   const res = await fetch('https://alpa-xpsingle-single.azurewebsites.net/sitecore/api/layout/render/jss?item='+item+'&sc_apikey={AB32580E-F477-47EE-B4AB-FAAEB86225C0}')
   const data = await res.json();
 
