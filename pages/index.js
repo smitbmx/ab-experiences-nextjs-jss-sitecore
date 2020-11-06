@@ -21,7 +21,7 @@ function Home(props) {
     <h2 className="car__name">{experience.Title.value}</h2>
     <h4>{experience.Text.value}</h4>
     
-    <img className="car__image" src={experience.Image.value} alt={experience.Title.value} />
+    {/* <img className="car__image" src={experience.Image.value} alt={experience.Title.value} /> */}
 
     <h3>Technical specs</h3>
        <hr/>
