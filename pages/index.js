@@ -17,8 +17,10 @@ function Home(props) {
   </header>
   <div id="main">
     <article>
+    <img src="/protonlogo.jpg" className="logo" />
     <h2>{experience.sitecore.route.fields.Title.value}</h2>
     <h4>{experience.sitecore.route.fields.Text.value}</h4>
+    
     <h3>Technical specs</h3>
        <hr/>
        <h4>Engine: {experience.sitecore.route.fields.Engine?.value}</h4>
@@ -74,6 +76,13 @@ function Home(props) {
     .header__name {
       color: ghostwhite;
       text-align: center;
+    }
+
+    .logo{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 200px;
     }
   `}</style>
 </div>
