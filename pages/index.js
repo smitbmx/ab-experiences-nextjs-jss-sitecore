@@ -18,7 +18,7 @@ function Home(props) {
   <div id="main">
     <article>
     <img src="/protonlogo.jpg" className="logo" />
-    <h2>{experience.sitecore.route.fields.Title.value}</h2>
+    <h2 className="car__name">{experience.sitecore.route.fields.Title.value}</h2>
     <h4>{experience.sitecore.route.fields.Text.value}</h4>
     
     <h3>Technical specs</h3>
@@ -84,6 +84,10 @@ function Home(props) {
       margin-right: auto;
       width: 200px;
     }
+
+    .car__name{
+      text-align: center;
+    }
   `}</style>
 </div>
   
@@ -122,6 +126,8 @@ Home.getInitialProps = async function(){
     const data = await res.json();
     sitecoreExperiences.push(data);
   }
+
+  console.warn("ALERT: getInitialProps TRIGGERED!");
 
 
   return{
