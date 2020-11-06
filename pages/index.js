@@ -7,7 +7,7 @@ function Home(props) {
   var exp = Math.floor(Math.random() * props.sitecoreExperiences.length)
   console.warn("Length Exp: ", exp);
   
-  var experience = props.sitecoreExperiences[exp];
+  var experience = props.sitecoreExperiences[exp].sitecore.route.fields;
   return <div>
   <header>
     <h1 className="header__name">
@@ -18,18 +18,18 @@ function Home(props) {
   <div id="main">
     <article>
     <img src="/protonlogo.jpg" className="logo" />
-    <h2 className="car__name">{experience.sitecore.route.fields.Title.value}</h2>
-    <h4>{experience.sitecore.route.fields.Text.value}</h4>
+    <h2 className="car__name">{experience.Title.value}</h2>
+    <h4>{experience.Text.value}</h4>
     
-    <img className="car__image" src={experience.sitecore.route.fields.Image.value} alt={experience.sitecore.route.fields.Title.value} />
+    <img className="car__image" src={experience.Image.value} alt={experience.Title.value} />
 
     <h3>Technical specs</h3>
        <hr/>
-       <h4>Engine: {experience.sitecore.route.fields.Engine?.value}</h4>
-       <h4>Price: {experience.sitecore.route.fields.Price?.value}</h4>
-       <h4>Weigth: {experience.sitecore.route.fields.Weight?.value}</h4>
-       <h4>Length: {experience.sitecore.route.fields.Length?.value}</h4>
-       <h4>Fuel tank capacity: {experience.sitecore.route.fields.FuelTank?.value}</h4>
+       <h4>Engine: {experience.Engine?.value}</h4>
+       <h4>Price: {experience.Price?.value}</h4>
+       <h4>Weigth: {experience.Weight?.value}</h4>
+       <h4>Length: {experience.Length?.value}</h4>
+       <h4>Fuel tank capacity: {experience.FuelTank?.value}</h4>
        <hr/>
     </article>
     <nav></nav>
