@@ -4,12 +4,14 @@ import fetch from 'isomorphic-unfetch'
 
 function Home(props) {
   //console.warn("data", props.sitecoreExperiences[0].sitecore.route.name)
-
-  var experience = GetExperience(props);
+  var exp = Math.floor(Math.random() * props.sitecoreExperiences.length)
+  console.warn("Length Exp: ", exp);
+  
+  var experience = props.sitecoreExperiences[exp];
   return <div>
   <header>
     <h1 className="header__name">
-      Proton Store
+      Welcome to Proton Store
     </h1>
     <h2 className="header__name"></h2>
   </header>
@@ -17,37 +19,14 @@ function Home(props) {
     <article>
     <h2>{experience.sitecore.route.fields.Title.value}</h2>
     <h4>{experience.sitecore.route.fields.Text.value}</h4>
-      <p>
-        Proton Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only
-        five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with
-        the release of Letraset sheets containing Lorem Ipsum passages, and
-        more recently with desktop publishing software like Aldus PageMaker
-        including versions of Lorem Ipsum.
-      </p>
-      <img src="images/alps.jpg" className="main__img" />
-      <p>
-        Proton Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only
-        five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with
-        the release of Letraset sheets containing Lorem Ipsum passages, and
-        more recently with desktop publishing software like Aldus PageMaker
-        including versions of Lorem Ipsum.
-      </p>
-      <p>
-        Proton Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only
-        five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with
-        the release of Letraset sheets containing Lorem Ipsum passages, and
-        more recently with desktop publishing software like Aldus PageMaker
-        including versions of Lorem Ipsum.
-      </p>
+    <h3>Technical specs</h3>
+       <hr/>
+       <h4>Engine: {experience.sitecore.route.fields.Engine?.value}</h4>
+       <h4>Price: {experience.sitecore.route.fields.Price?.value}</h4>
+       <h4>Weigth: {experience.sitecore.route.fields.Weight?.value}</h4>
+       <h4>Length: {experience.sitecore.route.fields.Length?.value}</h4>
+       <h4>Fuel tank capacity: {experience.sitecore.route.fields.FuelTank?.value}</h4>
+       <hr/>
     </article>
     <nav></nav>
     <aside></aside>
@@ -111,7 +90,7 @@ function Home(props) {
   //     <hr/>
   //     <h4>Engine: {experience.sitecore.route.fields.Engine?.value}</h4>
   //     <h4>Price: {experience.sitecore.route.fields.Price.value}</h4>
-  //     <h4>Weigth: {experience.sitecore.route.fields.Weigth.value}</h4>
+  //     <h4>Weigth: {experience.sitecore.route.fields.Weight.value}</h4>
   //     <h4>Length: {experience.sitecore.route.fields.Length.value}</h4>
   //     <h4>Fuel tank capacity: {experience.sitecore.route.fields.FuelTank.value}</h4>
   //     <hr/>
@@ -140,26 +119,6 @@ Home.getInitialProps = async function(){
     sitecoreExperiences
   }
 }
-
-function GetExperience(props){
-  var exp = Math.floor(Math.random() * props.sitecoreExperiences.length)
-  return props.sitecoreExperiences[exp];
-}
-
-// export async function getStaticProps() {
-//   // Call an external API endpoint to get posts.
-//   // You can use any data fetching library
-//   const res = await fetch('https://.../posts')
-//   const posts = await res.json()
-
-//   // By returning { props: posts }, the Blog component
-//   // will receive `posts` as a prop at build time
-//   return {
-//     sitecoreExperiences: {
-//       posts,
-//     },
-//   }
-// }
 
 export default Home
 
